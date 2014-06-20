@@ -5,7 +5,7 @@
 	<name>UID</name>
 	<description>Cordova plugin to get unique identifiers: UUID, IMEI, IMSI, ICCID and MAC.</description>
 	<license>MIT</license>
-	<keywords>cordova,uid,imei,imsi,uuid, sim, iccid, mac</keywords>
+	<keywords>cordova,uid,imei,imsi,uuid,sim,iccid,mac</keywords>
 	<repo>https://github.com/hygieiasoft/cordova-plugin-uid</repo>
 	<issue>https://github.com/hygieiasoft/cordova-plugin-uid/issues</issue>
 
