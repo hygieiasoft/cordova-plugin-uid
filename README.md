@@ -1,8 +1,8 @@
 # org.hygieiasoft.cordova.uid
 Cordova plugin to get unique identifiers like UUID, IMEI and IMSI.
 
-This plugin defines a global `uid` object.
-Although the object is in the global scope, it is not available until after the `deviceready` event.
+This plugin defines a `cordova.plugins.uid` object.
+The object is not available until after the `deviceready` event.
 
 		document.addEventListener('deviceready', onDeviceReady, false);
 		function onDeviceReady() {
