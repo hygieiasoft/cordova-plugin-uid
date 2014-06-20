@@ -8,6 +8,8 @@ package org.hygieiasoft.cordova.uid;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.provider.Settings;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
@@ -22,6 +24,8 @@ public class UID extends CordovaPlugin {
 	public static String uuid; // Device UUID
 	public static String imei; // Device IMEI
 	public static String imsi; // Device IMSI
+	public static String iccid; // Sim IMSI
+	public static String mac; // MAC address
 
 	/**
 	 * Constructor.
@@ -43,6 +47,8 @@ public class UID extends CordovaPlugin {
 		UID.uuid = getUuid(context);
 		UID.imei = getImei(context);
 		UID.imsi = getImsi(context);
+		UID.iccid = getIccid(context);
+		UID.mac = getMac(context);
 	}
 
 	/**
@@ -60,6 +66,8 @@ public class UID extends CordovaPlugin {
 			r.put("UUID", UID.uuid);
 			r.put("IMEI", UID.imei);
 			r.put("IMSI", UID.imsi);
+			r.put("ICCID", UID.iccid);
+			r.put("MAC", UID.mac);
 			callbackContext.success(r);
 		} else {
 			return false;
@@ -100,6 +108,31 @@ public class UID extends CordovaPlugin {
 		final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		String imsi = mTelephony.getSubscriberId();
 		return imsi;
+	}
+
+	/**
+	 * Get the sim's Integrated Circuit Card Identifier (ICCID).
+	 *
+	 * @param context The context of the main Activity.
+	 * @return
+	 */
+	public String getIccid(Context context) {
+		final TelephonyManager mTelephony = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+		String iccid = mTelephony.getSimSerialNumber();
+		return iccid;
+	}
+
+	/**
+	 * Get the Media Access Control address (MAC).
+	 *
+	 * @param context The context of the main Activity.
+	 * @return
+	 */
+	public String getMac(Context context) {
+		final WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+		final WifiInfo wInfo = wifiManager.getConnectionInfo();
+		String mac = wInfo.getMacAddress();
+		return mac;
 	}
 
 }

@@ -40,3 +40,19 @@ The `uid.IMSI` gets the device's International mobile Subscriber Identity ([IMSI
 
 ### Supported Platforms
 - Android
+
+## uid.ICCID
+The `uid.ICCID` gets the sim's Integrated Circuit Card Identifier ([ICCID](http://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID)).
+
+		var string = cordova.plugins.uid.ICCID;
+
+### Supported Platforms
+- Android
+
+## uid.MAC
+The `uid.MAC` gets the Media Access Control address ([MAC](http://en.wikipedia.org/wiki/MAC_address)).
+
+		var string = cordova.plugins.uid.MAC;
+
+### Supported Platforms
+- Android
