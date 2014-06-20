@@ -16,6 +16,8 @@ The object is not available until after the `deviceready` event.
 - uid.UUID
 - uid.IMEI
 - uid.IMSI
+- uid.ICCID
+- uid.IMSI
 
 ## uid.UUID
 The `uid.UUID` gets the device's Universally Unique Identifier ([UUID](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)).
