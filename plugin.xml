@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	id="org.hygieiasoft.cordova.uid"
+	version="1.0.0">
+	<name>UID</name>
+	<description>Cordova plugin to get unique identifiers like UUID, IMEI and IMSI</description>
+	<license>MIT</license>
+	<keywords>cordova,uid,imei,imsi,uuid</keywords>
+	<repo>https://github.com/hygieiasoft/cordova-plugin-uid</repo>
+	<issue>https://github.com/hygieiasoft/cordova-plugin-uid/issues</issue>
+
+	<js-module src="www/uid.js" name="uid">
+		<clobbers target="cordova.plugins.uid" />
+	</js-module>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="UID">
+				<param name="android-package" value="org.hygieiasoft.cordova.uid.UID" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+		</config-file>
+
+		<source-file src="src/android/UID.java" target-dir="src/org/hygieiasoft/cordova/uid" />
+	</platform>
+
+</plugin>
